@@ -18,3 +18,10 @@ ACCENT = "#8b5cf6"
 
 NUM_BARS = 32
 
+
+class AudioVisualizerApp(ctk.CTk):
+    def __init__(self):
+        super().__init__()
+        self.title("Live Audio Visualizer")
+        self.geometry("700x480")
+        self.configure(fg_color=BG)
