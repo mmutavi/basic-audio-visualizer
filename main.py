@@ -15,3 +15,6 @@ ctk.set_appearance_mode("dark")
 BG = "#0a0a0d"
 PANEL = "#161619"
 ACCENT = "#8b5cf6"
+
+NUM_BARS = 32
+
