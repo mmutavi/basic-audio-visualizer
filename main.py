@@ -33,3 +33,6 @@ class AudioVisualizerApp(ctk.CTk):
         self.toggle_btn.pack(side="left", padx=16, pady=14)
         self.status_var = ctk.StringVar(value="Idle")
         ctk.CTkLabel(top, textvariable=self.status_var, text_color="#8a8a8a").pack(side="left", padx=10)
+
+        self.canvas = ctk.CTkCanvas(self, bg=PANEL, height=320, width=660, highlightthickness=0)
+        self.canvas.pack(padx=20, pady=(0, 20))
