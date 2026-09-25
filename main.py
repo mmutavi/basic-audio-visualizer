@@ -36,3 +36,7 @@ class AudioVisualizerApp(ctk.CTk):
 
         self.canvas = ctk.CTkCanvas(self, bg=PANEL, height=320, width=660, highlightthickness=0)
         self.canvas.pack(padx=20, pady=(0, 20))
+
+        self.stream = None
+        self.running = False
+        self._draw_bars([0.0] * NUM_BARS)
