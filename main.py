@@ -40,3 +40,21 @@ class AudioVisualizerApp(ctk.CTk):
         self.stream = None
         self.running = False
         self._draw_bars([0.0] * NUM_BARS)
+
+    def _toggle(self):
+        if self.running:
+            self.running = False
+            self.toggle_btn.configure(text="Start Listening")
+            self.status_var.set("Idle")
+            logic.stop_stream(self.stream)
+            self.stream = None
+        else:
+            try:
+                self.stream = logic.start_stream()
+            except Exception as e:
+                self.status_var.set(f"Mic error: {e}")
+                return
+            self.running = True
+            self.toggle_btn.configure(text="Stop Listening")
+            self.status_var.set("Listening...")
+            self._update_loop()
