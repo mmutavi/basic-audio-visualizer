@@ -78,3 +78,7 @@ class AudioVisualizerApp(ctk.CTk):
             x0 = gap + i * (bar_width + gap)
             y0 = height - bar_height
             self.canvas.create_rectangle(x0, y0, x0 + bar_width, height, fill=ACCENT, outline="")
+
+    def destroy(self):
+        logic.stop_stream(self.stream)
+        super().destroy()
