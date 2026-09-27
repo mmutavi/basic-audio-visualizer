@@ -58,3 +58,10 @@ class AudioVisualizerApp(ctk.CTk):
             self.toggle_btn.configure(text="Stop Listening")
             self.status_var.set("Listening...")
             self._update_loop()
+
+    def _update_loop(self):
+        if not self.running:
+            return
+        levels = logic.get_bar_levels(self.stream, NUM_BARS)
+        self._draw_bars(levels)
+        self.after(30, self._update_loop)
