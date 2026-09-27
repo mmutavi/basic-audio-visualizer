@@ -65,3 +65,10 @@ class AudioVisualizerApp(ctk.CTk):
         levels = logic.get_bar_levels(self.stream, NUM_BARS)
         self._draw_bars(levels)
         self.after(30, self._update_loop)
+
+    def _draw_bars(self, levels):
+        self.canvas.delete("all")
+        width = 660
+        height = 320
+        gap = 4
+        bar_width = (width - gap * (NUM_BARS + 1)) / NUM_BARS
