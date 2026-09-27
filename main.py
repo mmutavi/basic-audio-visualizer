@@ -72,3 +72,9 @@ class AudioVisualizerApp(ctk.CTk):
         height = 320
         gap = 4
         bar_width = (width - gap * (NUM_BARS + 1)) / NUM_BARS
+
+        for i, level in enumerate(levels):
+            bar_height = max(2, level * (height - 20))
+            x0 = gap + i * (bar_width + gap)
+            y0 = height - bar_height
+            self.canvas.create_rectangle(x0, y0, x0 + bar_width, height, fill=ACCENT, outline="")
