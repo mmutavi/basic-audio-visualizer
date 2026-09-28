@@ -82,3 +82,8 @@ class AudioVisualizerApp(ctk.CTk):
     def destroy(self):
         logic.stop_stream(self.stream)
         super().destroy()
+
+
+if __name__ == "__main__":
+    app = AudioVisualizerApp()
+    app.mainloop()
