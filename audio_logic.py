@@ -6,3 +6,6 @@ and log-spaced frequency banding.
 
 import numpy as np
 import sounddevice as sd
+
+SAMPLE_RATE = 44100
+BLOCK_SIZE = 1024
