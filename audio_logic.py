@@ -30,3 +30,4 @@ class _Stream:
 
 def start_stream():
     return _Stream()
+
