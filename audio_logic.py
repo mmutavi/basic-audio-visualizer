@@ -22,3 +22,7 @@ class _Stream:
 
     def _callback(self, indata, frames, time_info, status):
         self.buffer = indata[:, 0].copy()
+
+    def close(self):
+        self.stream.stop()
+        self.stream.close()
