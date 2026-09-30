@@ -9,3 +9,13 @@ import sounddevice as sd
 
 SAMPLE_RATE = 44100
 BLOCK_SIZE = 1024
+
+
+class _Stream:
+    def __init__(self):
+        self.buffer = np.zeros(BLOCK_SIZE, dtype=np.float32)
+        self.stream = sd.InputStream(
+            channels=1, samplerate=SAMPLE_RATE, blocksize=BLOCK_SIZE,
+            callback=self._callback,
+        )
+        self.stream.start()
