@@ -19,3 +19,6 @@ class _Stream:
             callback=self._callback,
         )
         self.stream.start()
+
+    def _callback(self, indata, frames, time_info, status):
+        self.buffer = indata[:, 0].copy()
