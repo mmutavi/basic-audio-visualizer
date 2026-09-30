@@ -26,3 +26,7 @@ class _Stream:
     def close(self):
         self.stream.stop()
         self.stream.close()
+
+
+def start_stream():
+    return _Stream()
