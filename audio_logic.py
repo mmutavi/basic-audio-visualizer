@@ -36,3 +36,8 @@ def stop_stream(stream):
     if stream is not None:
         stream.close()
 
+
+def get_bar_levels(stream, num_bars):
+    samples = stream.buffer
+    windowed = samples * np.hanning(len(samples))
+    spectrum = np.abs(np.fft.rfft(windowed))
