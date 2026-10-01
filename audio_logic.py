@@ -35,3 +35,4 @@ def start_stream():
 def stop_stream(stream):
     if stream is not None:
         stream.close()
+
