@@ -31,3 +31,7 @@ class _Stream:
 def start_stream():
     return _Stream()
 
+
+def stop_stream(stream):
+    if stream is not None:
+        stream.close()
