@@ -44,3 +44,9 @@ def get_bar_levels(stream, num_bars):
 
     freqs = np.fft.rfftfreq(len(samples), 1 / SAMPLE_RATE)
     band_edges = np.logspace(np.log10(50), np.log10(SAMPLE_RATE / 2), num_bars + 1)
+
+    levels = []
+    for i in range(num_bars):
+        mask = (freqs >= band_edges[i]) & (freqs < band_edges[i + 1])
+        magnitude = spectrum[mask].mean() if mask.any() else 0.0
+        levels.append(magnitude)
