@@ -41,3 +41,6 @@ def get_bar_levels(stream, num_bars):
     samples = stream.buffer
     windowed = samples * np.hanning(len(samples))
     spectrum = np.abs(np.fft.rfft(windowed))
+
+    freqs = np.fft.rfftfreq(len(samples), 1 / SAMPLE_RATE)
+    band_edges = np.logspace(np.log10(50), np.log10(SAMPLE_RATE / 2), num_bars + 1)
