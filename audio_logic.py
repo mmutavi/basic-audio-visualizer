@@ -50,3 +50,8 @@ def get_bar_levels(stream, num_bars):
         mask = (freqs >= band_edges[i]) & (freqs < band_edges[i + 1])
         magnitude = spectrum[mask].mean() if mask.any() else 0.0
         levels.append(magnitude)
+
+    levels = np.array(levels)
+    max_val = levels.max() if levels.max() > 0 else 1.0
+    normalized = np.clip(levels / max_val, 0.0, 1.0)
+    return normalized.tolist()
